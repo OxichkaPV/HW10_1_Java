@@ -5,16 +5,16 @@ public class RadioTests {
 
     @Test
     void setMinBoundNumberStation() { // присвоение минимального допустимого значения номера радиостанции
-        Radio radio = new Radio();
-        radio.setNumberCurrentStation(0);
-        int expected = 0;
+        Radio radio = new Radio(20);
+        radio.setNumberCurrentStation(15);
+        int expected = 15;
         int actual = radio.getNumberCurrentStation();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void setNegativeMinBoundNumberStation() { // присвоение отрицательного значения радиостанции меньше минимума
-        Radio radio = new Radio();
+        Radio radio = new Radio(20);
         radio.setNumberCurrentStation(-1);
         int expected = 0;
         int actual = radio.getNumberCurrentStation();
@@ -69,7 +69,7 @@ public class RadioTests {
 
     @Test
     void switchToThePrevNumberStation() { // проверка переключателя на уменьшение номера радиостанции
-        Radio radio = new Radio();
+        Radio radio = new Radio(25);
         radio.setNumberCurrentStation(6);
         radio.prevNumberStation();
         int expected = 5;
